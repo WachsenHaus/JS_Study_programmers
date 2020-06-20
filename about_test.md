@@ -7,8 +7,8 @@
 - 해결한 잠재적 오류와 해결한 요구사항을 기반으로 채점
 
 # 실행법
-
-- data.json이 없는 경우 backend 폴더로 이동한 뒤 `npm run crawaling`으로 데이터를 먼저 생성해야함
+- backend 폴더 위치에서 "npm install" 명령어로 node_modules 설치
+- data.json이 없는 경우 backend 폴더로 이동한 뒤 `npm run crawling`으로 데이터를 먼저 생성해야함
 - 이후 `node app.js` 실행
 - 이후 frontend/index.html 을 브라우저로 열면 실행 됨
   - 혹은 frontend 폴더에서 `npm start` 입력
