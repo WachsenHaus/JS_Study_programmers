@@ -1,3 +1,11 @@
+:root[color-mode="light"] {
+  --bg-color: #fff;
+  --text-color: #000;
+}
+:root[color-mode="dark"] {
+  --bg-color: #000;
+  --text-color: #fff;
+}
 :root {
   --view-gird-count: 4;
 }
@@ -115,7 +123,11 @@ body * {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  *:not(input) {
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
 }
