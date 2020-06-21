@@ -6,6 +6,12 @@
   --bg-color: #000;
   --text-color: #fff;
 }
+:root[color-mode="light"] .light--hidden {
+  display: none;
+}
+:root[color-mode="dark"] .dark--hidden {
+  display: none;
+}
 :root {
   --view-gird-count: 4;
 }
@@ -20,7 +26,10 @@
 html {
   box-sizing: border-box;
 }
-
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
 body * {
   font-family: Goyang;
 }
@@ -88,7 +97,8 @@ body * {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   border: 1px solid #eee;
   border-radius: 5px;
 }
@@ -96,6 +106,13 @@ body * {
 .ImageInfo .content-wrapper img {
   width: 100%;
 }
+
+.light--hidden,
+.dark--hidden {
+  width: 10rem;
+  height: 2rem;
+}
+
 @media screen and (max-width: 992px) {
   .SearchResult {
     --view-gird-count: 3;
@@ -118,16 +135,5 @@ body * {
   .ImageInfo .content-wrapper {
     position: fixed;
     width: 100%;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
-  *:not(input) {
-    background-color: var(--bg-color);
-    color: var(--text-color);
   }
 }
