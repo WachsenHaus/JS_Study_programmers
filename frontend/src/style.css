@@ -1,16 +1,10 @@
-:root[color-mode="light"] {
+:root[color-mode="Light"] {
   --bg-color: #fff;
   --text-color: #000;
 }
-:root[color-mode="dark"] {
+:root[color-mode="Dark"] {
   --bg-color: #000;
   --text-color: #fff;
-}
-:root[color-mode="light"] .light--hidden {
-  display: none;
-}
-:root[color-mode="dark"] .dark--hidden {
-  display: none;
 }
 :root {
   --view-gird-count: 4;
