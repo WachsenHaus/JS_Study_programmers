@@ -5,8 +5,7 @@ class App {
   data = [];
 
   constructor($target) {
-    this.$target = $target;
-
+    this.$target = $target; //target은 htmldivelemetn를 뜻한다.
     this.toggleBtn = new ToggleBtn({
       $target,
     });
