@@ -108,6 +108,35 @@ body * {
   height: 2rem;
 }
 
+.Loading {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -2.5rem;
+}
+
+.spinner {
+  border: 3px solid #f0f5e1;
+  border-top: 3px solid rgba(44, 80, 241, 0.712);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 1000ms linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media screen and (max-width: 992px) {
   .SearchResult {
     --view-gird-count: 3;

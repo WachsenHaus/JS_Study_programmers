@@ -5,16 +5,22 @@ class App {
   data = [];
 
   constructor($target) {
-    this.$target = $target;
-
+    this.$target = $target; //target은 htmldivelemetn를 뜻한다.
     this.toggleBtn = new ToggleBtn({
+      $target,
+    });
+
+    this.lodingComponent = new LoadingComponent({
       $target,
     });
 
     this.searchInput = new SearchInput({
       $target,
-      onSearch: (keyword) => {
-        api.fetchCats(keyword).then(({ data }) => this.setState(data));
+      onSearch: async (keyword) => {
+        this.lodingComponent.setState(false);
+        const { data } = await api.fetchCats(keyword);
+        this.setState(data);
+        this.lodingComponent.setState(true);
       },
     });
 
@@ -36,10 +42,11 @@ class App {
         image: null,
       },
     });
+
+    this.lodingComponent.setResultComponent(this.searchResult);
   }
 
   setState(nextData) {
-    console.log(this);
     this.data = nextData;
     this.searchResult.setState(nextData);
   }
