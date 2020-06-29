@@ -23,7 +23,15 @@ class App {
         this.loadingComponent.setState(true);
       },
     });
-
+    this.randomBtn = new RandomBtn({
+      $target,
+      onRandom: async () => {
+        this.loadingComponent.setState(false);
+        const { data } = await api.fetchRandom();
+        this.setState(data);
+        this.loadingComponent.setState(true);
+      },
+    });
     this.searchResult = new SearchResult({
       $target,
       initialData: this.data,
