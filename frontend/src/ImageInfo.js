@@ -24,9 +24,10 @@ class ImageInfo {
     this.render();
   }
 
-  render() {
+  async render() {
     if (this.data.visible) {
-      const { name, url, temperament, origin } = this.data.image;
+      const { data } = await api.fetchCatInfo(this.data.image.id);
+      const { name, url, temperament, origin } = data;
 
       this.$imageInfo.innerHTML = `
         <div class="content-wrapper">
