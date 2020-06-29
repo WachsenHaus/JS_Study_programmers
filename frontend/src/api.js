@@ -1,8 +1,8 @@
 const API_ENDPOINT = "http://localhost:4001";
 
 const api = {
-  fetchCats: (keyword) => {
-    return fetch(`${API_ENDPOINT}/api/cats/search?q=${keyword}`).then((res) => res.json());
+  fetchCats: (keyword, page = 1) => {
+    return fetch(`${API_ENDPOINT}/api/cats/search?q=${keyword}&page=${page}`).then((res) => res.json());
   },
   fetchCatInfo: (id) => {
     return fetch(`${API_ENDPOINT}/api/cats/${id}`).then((res) => res.json());
