@@ -19,6 +19,10 @@ class App {
       onSearch: async (keyword) => {
         this.loadingComponent.setState(false);
         const { data } = await api.fetchCats(keyword);
+        console.log(data);
+        if (data.length == 0 || data == undefined) {
+          alert("검색한 결과가 없습니다.");
+        }
         this.setState(data);
         this.loadingComponent.setState(true);
       },
