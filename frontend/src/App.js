@@ -10,17 +10,17 @@ class App {
       $target,
     });
 
-    this.lodingComponent = new LoadingComponent({
+    this.loadingComponent = new LoadingComponent({
       $target,
     });
 
     this.searchInput = new SearchInput({
       $target,
       onSearch: async (keyword) => {
-        this.lodingComponent.setState(false);
+        this.loadingComponent.setState(false);
         const { data } = await api.fetchCats(keyword);
         this.setState(data);
-        this.lodingComponent.setState(true);
+        this.loadingComponent.setState(true);
       },
     });
 
@@ -28,6 +28,7 @@ class App {
       $target,
       initialData: this.data,
       onClick: (image) => {
+        console.log(image);
         this.imageInfo.setState({
           visible: true,
           image,
@@ -43,7 +44,7 @@ class App {
       },
     });
 
-    this.lodingComponent.setResultComponent(this.searchResult);
+    this.loadingComponent.setResultComponent(this.searchResult);
   }
 
   setState(nextData) {
