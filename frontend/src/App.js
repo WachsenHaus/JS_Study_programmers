@@ -28,6 +28,7 @@ class App {
         }
         this.setState(data);
         this.loadingComponent.setState(true);
+        this.logKeyword.setItem(keyword);
       },
     });
     this.randomBtn = new RandomBtn({
@@ -35,6 +36,20 @@ class App {
       onRandom: async () => {
         this.loadingComponent.setState(false);
         const { data } = await api.fetchRandom();
+        this.setState(data);
+        this.loadingComponent.setState(true);
+      },
+    });
+    this.logKeyword = new LogKeyword({
+      $target,
+      onClick: async (keyword) => {
+        this.searchInput.$searchInput.value = keyword;
+        this.loadingComponent.setState(false);
+        const { data } = await api.fetchCats(keyword);
+        console.log(data);
+        if (data.length == 0 || data == undefined) {
+          alert("검색한 결과가 없습니다.");
+        }
         this.setState(data);
         this.loadingComponent.setState(true);
       },

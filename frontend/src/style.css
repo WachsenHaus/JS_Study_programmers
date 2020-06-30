@@ -60,7 +60,22 @@ body * {
   margin: 0 0 1em;
   width: 100%;
 }
-
+.SearchReuslt__log ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.SearchReuslt__log li {
+  margin: 1rem 1rem;
+  padding: 0.5rem 2rem;
+  list-style: none;
+  border: 1px solid rgba(44, 80, 241, 0.712);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.SearchReuslt__log li:hover {
+  background-color: rgba(44, 80, 241, 0.075);
+}
 .SearchInput {
   width: 80%;
   height: 5rem;
