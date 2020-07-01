@@ -60,13 +60,43 @@ body * {
   margin: 0 0 1em;
   width: 100%;
 }
-
+.SearchReuslt__log ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.SearchReuslt__log li {
+  margin: 1rem 1rem;
+  padding: 0.5rem 2rem;
+  list-style: none;
+  border: 1px solid rgba(44, 80, 241, 0.712);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.SearchReuslt__log li:hover {
+  background-color: rgba(44, 80, 241, 0.075);
+}
 .SearchInput {
-  width: 100%;
+  width: 80%;
+  height: 5rem;
   font-size: 40px;
   padding: 10px 15px;
+  display: inline-block;
 }
-
+.randomButton {
+  margin-left: 1rem;
+  width: 10%;
+  height: 5rem;
+  line-height: 5rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 25px;
+  border: 1px solid var(--text-color);
+  border-radius: 10px;
+  /* position: relative; */
+  /* background-color: red; */
+}
 .ImageInfo {
   position: fixed;
   left: 0;
@@ -106,6 +136,35 @@ body * {
 .dark--hidden {
   width: 10rem;
   height: 2rem;
+}
+
+.Loading {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -2.5rem;
+}
+
+.spinner {
+  border: 3px solid #f0f5e1;
+  border-top: 3px solid rgba(44, 80, 241, 0.712);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 1000ms linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (max-width: 992px) {

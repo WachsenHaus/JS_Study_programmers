@@ -11,6 +11,12 @@ class ImageInfo {
     this.data = data;
 
     this.render();
+
+    document.querySelector("body").addEventListener("keyup", (e) => {
+      if (e.keyCode == 27) {
+        this.$imageInfo.style.display = "none";
+      }
+    });
   }
 
   setState(nextData) {
@@ -18,9 +24,10 @@ class ImageInfo {
     this.render();
   }
 
-  render() {
+  async render() {
     if (this.data.visible) {
-      const { name, url, temperament, origin } = this.data.image;
+      const { data } = await api.fetchCatInfo(this.data.image.id);
+      const { name, url, temperament, origin } = data;
 
       this.$imageInfo.innerHTML = `
         <div class="content-wrapper">
@@ -35,6 +42,17 @@ class ImageInfo {
           </div>
         </div>`;
       this.$imageInfo.style.display = "block";
+
+      document.querySelector(".close").addEventListener("click", (e) => {
+        this.$imageInfo.style.display = "none";
+      });
+
+      this.$imageInfo.addEventListener("click", (e) => {
+        if (e.target.className == "") {
+          return false;
+        }
+        this.$imageInfo.style.display = "none";
+      });
     } else {
       this.$imageInfo.style.display = "none";
     }
