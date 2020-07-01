@@ -1,1 +1,1 @@
-new App(document.querySelector("#App"));
+const a = new App(document.querySelector("#App"));
